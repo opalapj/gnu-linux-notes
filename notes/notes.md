@@ -506,6 +506,21 @@ GUIs:
 
 ![](image-72.png)
 
+## `tee`
+
+![](image-79.png)
+
+Very useful, when command running and output redirecting have to be divided
+because of `non-sudo`/`sudo` privileges. Example:
+
+When it does not work:
+
+    sudo pdm completion bash > /etc/bash_completion.d/pdm.bash-completion
+
+Try:
+
+    pdm completion bash | sudo tee /etc/bash_completion.d/pdm.bash-completion
+
 # Installing software
 
 ![](image-19.png)
