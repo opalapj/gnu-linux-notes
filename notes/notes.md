@@ -186,6 +186,12 @@ Enable autocompletion in current shell:
 
     source /etc/bash_completion
 
+## Aliases
+
+Edit `~/.bashrc` file to add alias permamently, eg.
+
+    alias new='gnome-terminal'
+
 ## History
 
     history
