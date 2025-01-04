@@ -174,6 +174,18 @@ a particular chapter. It is common to have multiple pages across multiple
 chapters with the same name, especially for names of library functions or system
 calls.
 
+## Autocompletion scripts
+
+Autocompletion scripts are located in `/etc/bash_completion.d/`.
+
+Example of generation:
+
+    exercism completion bash | sudo tee /etc/bash_completion.d/exercism.bash-completion
+
+Enable autocompletion in current shell:
+
+    source /etc/bash_completion
+
 ## History
 
     history
