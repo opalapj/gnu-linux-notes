@@ -51,9 +51,9 @@ Place for most commonly used terminal commands, like `ls`, `mount`, `rm`, etc.
 [More about symlinks to `/usr/bin/`][1]
 
 `/bin` contains commands that may be used by both the `system administrator` and
-by `users`, but which are required when no other filesystems are mounted
-(e.g. in single user mode). It may also contain commands which are used
-indirectly by scripts.
+by `users`, but which are required when no other filesystems are mounted (e.g.
+in single user mode). It may also contain commands which are used indirectly by
+scripts.
 
 > IMPORTANT: `bin` directory for user defined scripts is under `~/.local/bin`
 
@@ -61,13 +61,14 @@ indirectly by scripts.
 
 There must be no subdirectories in `/bin`.
 
-[1]: https://manpages.ubuntu.com/manpages/jammy/en/man7/file-hierarchy.7.html#compatibility%20symlinks
+[1]:
+  https://manpages.ubuntu.com/manpages/jammy/en/man7/file-hierarchy.7.html#compatibility%20symlinks
 
 ## `/etc/` - Host-specific system configuration
 
-The `/etc` hierarchy contains configuration files. A "configuration file" is
-a local file used to control the operation of a program; it must be static and
-cannot be an executable binary. 
+The `/etc` hierarchy contains configuration files. A "configuration file" is a
+local file used to control the operation of a program; it must be static and
+cannot be an executable binary.
 
 `/etc` contains system-global configuration files, which affect the system's
 behavior for all users.
@@ -93,13 +94,13 @@ for it.
 ### Requirements
 
 User specific configuration files for applications are stored in the user's home
-directory in a file that starts with the '.' character (a "dot file"). If
-an application needs to create more than one dot file then they should be placed
-in a subdirectory with a name starting with a '.' character, (a "dot
-directory"). In this case the configuration files should not start with the '.'
-character. 
+directory in a file that starts with the '.' character (a "dot file"). If an
+application needs to create more than one dot file then they should be placed in
+a subdirectory with a name starting with a '.' character, (a "dot directory").
+In this case the configuration files should not start with the '.' character.
 
-[2]: https://manpages.ubuntu.com/manpages/jammy/en/man7/file-hierarchy.7.html#home%20directory
+[2]:
+  https://manpages.ubuntu.com/manpages/jammy/en/man7/file-hierarchy.7.html#home%20directory
 
 ## `/opt/` - Add-on application software packages
 
@@ -113,13 +114,13 @@ replicates the root directory structure, containing for instance, among others,
 `/usr/bin/` and `/usr/lib`.
 
 > NOTE:  
-`usr` stands for `Unix System Resources`, not `user`!
+> `usr` stands for `Unix System Resources`, not `user`!
 
 ## `/var/` - Persistent, variable system data
 
 `/var` is dedicated to variable data, such as logs, databases, websites, and
-temporary spool (e-mail etc.) files that persist from one boot to the next.
-A notable directory it contains is `/var/log` where system log files are kept.
+temporary spool (e-mail etc.) files that persist from one boot to the next. A
+notable directory it contains is `/var/log` where system log files are kept.
 
 # File permission
 
@@ -169,10 +170,9 @@ pages that are called `<term>`
     man 2 socket
     man 7 socket
 
-The chapter number can be used to force `man` to display the page from
-a particular chapter. It is common to have multiple pages across multiple
-chapters with the same name, especially for names of library functions or system
-calls.
+The chapter number can be used to force `man` to display the page from a
+particular chapter. It is common to have multiple pages across multiple chapters
+with the same name, especially for names of library functions or system calls.
 
 ## Autocompletion scripts
 
@@ -317,8 +317,8 @@ Keyboard shortcut:
 `mv` does double duty, in that it can:
 
 - simply rename a file,
-- move a file to another location, while possibly changing its name
-at the same time.
+- move a file to another location, while possibly changing its name at the same
+  time.
 
 ```
 mv <source> <destination>
@@ -335,15 +335,15 @@ mv <source> <destination>
 `mv` does double duty, in that it can:
 
 - simply rename a directory,
-- move a directory to another location, while possibly changing its name
-at the same time.
+- move a directory to another location, while possibly changing its name at the
+  same time.
 
 ```
 rmdir <dirname>
 ```
 
-The directory must be empty or the command will fail.
-To remove a directory and all of its contents you have to do:
+The directory must be empty or the command will fail. To remove a directory and
+all of its contents you have to do:
 
     rm -rf <dirname>
 
@@ -352,12 +352,11 @@ To remove a directory and all of its contents you have to do:
 While typing `rm –rf` is a fast and easy way to remove a whole filesystem tree
 recursively, it is extremely dangerous and should be used with the utmost care.
 
-
 ## I/O Redirection
 
 Through the command shell, we can redirect the three standard file streams so
-that we can get input from either a file or another command, instead of from 
-our keyboard, and we can write output and errors to files or use them to provide
+that we can get input from either a file or another command, instead of from our
+keyboard, and we can write output and errors to files or use them to provide
 input for subsequent commands.
 
 For example, we have a program called `cat` that reads from `stdin` and writes
@@ -377,8 +376,8 @@ In fact, you can do both at the same time as in:
     cat < input-file > output-file
 
 > NOTE:  
-Using `cat` and I/O redirection we can copy content from `input-file` to
-`output-file`.
+> Using `cat` and I/O redirection we can copy content from `input-file` to
+> `output-file`.
 
 Because `stderr` is not the same as `stdout`, error messages will still be seen
 on the terminal windows in the above example.
@@ -391,8 +390,7 @@ e.g.:
     cat --unknown-option 2> error-file
 
 > NOTE:  
-By the same logic, `cat 1> output-file` is the same as
-`cat > output-file`.
+> By the same logic, `cat 1> output-file` is the same as `cat > output-file`.
 
 A special shorthand notation can send anything written to file descriptor `2`
 (`stderr`) to the same place as file descriptor `1` (`stdout`):
@@ -408,13 +406,13 @@ A special shorthand notation can send anything written to file descriptor `2`
     locate <pattern>
 
 > NOTE:  
-`locate` utilizes a database created by a related utility, `updatedb`. Most
-Linux systems run this automatically once a day. However, you can update it at
-any time by just running `sudo updatedb` from the command line as the root user.
-The `locate` command in `Ubuntu` is typically used to find files quickly by
-searching a prebuilt index maintained by the `updatedb` command. However, files
-in the `/tmp` directory are often excluded from the index for performance and
-privacy reasons.
+> `locate` utilizes a database created by a related utility, `updatedb`. Most
+> Linux systems run this automatically once a day. However, you can update it at
+> any time by just running `sudo updatedb` from the command line as the root
+> user. The `locate` command in `Ubuntu` is typically used to find files quickly
+> by searching a prebuilt index maintained by the `updatedb` command. However,
+> files in the `/tmp` directory are often excluded from the index for
+> performance and privacy reasons.
 
     find <start-dir> <expression>
     find . -name "file*"  | start searching from current working directory
@@ -429,11 +427,12 @@ More advanced oneliner:
 - print result which path points to directory named "bin"
 
 > NOTE:  
-Use `sudo` in case of presence of problems with permission, e.g. in `tmp` dir:  
-`sudo find /tmp -type f -name "*file"`  
-Additionaly, `find` has many `expressions` like removing found files (default
-is `-print`):  
-`sudo find /tmp -type f -name "*file" -delete` 
+> Use `sudo` in case of presence of problems with permission, e.g. in `tmp`
+> dir:  
+> `sudo find /tmp -type f -name "*file"`  
+> Additionaly, `find` has many `expressions` like removing found files (default
+> is `-print`):  
+> `sudo find /tmp -type f -name "*file" -delete`
 
 ## Comparing files
 
@@ -479,12 +478,12 @@ GUIs:
 
 ## Wildcards and Matching Filenames
 
-| Wildcard | Result |
-| --- | --- |
-| ? | Matches any single character |
-| * | Matches any string of characters |
-| [set] | Matches any character in the set of characters |
-| [!set] | Matches any character not in the set of characters |
+| Wildcard | Result                                             |
+| -------- | -------------------------------------------------- |
+| ?        | Matches any single character                       |
+| \*       | Matches any string of characters                   |
+| [set]    | Matches any character in the set of characters     |
+| [!set]   | Matches any character not in the set of characters |
 
 # File manipulation utilities
 
@@ -558,27 +557,27 @@ in the free operating system Debian and its numerous derivatives. `dpkg` is used
 to install, remove, and provide information about `.deb` packages.
 
 > NOTE:  
-`dpkg` is the low-level packaging tool that `apt` uses to handle packages.
-Most "normal" user should only use `apt`, because it automatically handles
-dependencies. Only in very special cases, where you want to install a specific
-package, and you don't want to automatically resolve dependencies would you use
-`dpkg`.
+> `dpkg` is the low-level packaging tool that `apt` uses to handle packages.
+> Most "normal" user should only use `apt`, because it automatically handles
+> dependencies. Only in very special cases, where you want to install a specific
+> package, and you don't want to automatically resolve dependencies would you
+> use `dpkg`.
 
 > NOTE:  
-Uninstalling packages using `dpkg`, is NOT recommended in most cases. It is
-better to use a package manager that handles dependencies to ensure that the
-system is left in a consistent state. For example, using `dpkg -r zip` will
-remove the `zip` package, but any packages that depend on it will still be
-installed and may no longer function correctly as a result.
+> Uninstalling packages using `dpkg`, is NOT recommended in most cases. It is
+> better to use a package manager that handles dependencies to ensure that the
+> system is left in a consistent state. For example, using `dpkg -r zip` will
+> remove the `zip` package, but any packages that depend on it will still be
+> installed and may no longer function correctly as a result.
 
 ### Useful commands
 
 - list all installed packages:
- 
+
         dpkg --list
 
-    > NOTE:  
-    Without a pattern, non-installed packages will not be shown.
+  > NOTE:  
+  >  Without a pattern, non-installed packages will not be shown.
 
 - list packages, even non-installed:
 
@@ -631,15 +630,16 @@ its native user interface is at the command line, with programs that include
 `apt-get` and `apt-cache`.
 
 > NOTE:  
-The `apt package index` is a database of available packages from the
-repositories defined in the `/etc/apt/sources.list` file and in the
-`/etc/apt/sources.list.d` directory. To update the local package index with the
-latest changes made in the repositories, and thereby access the most up-to-date
-version of the package you’re interested in, type `sudo apt update`.
+> The `apt package index` is a database of available packages from the
+> repositories defined in the `/etc/apt/sources.list` file and in the
+> `/etc/apt/sources.list.d` directory. To update the local package index with
+> the latest changes made in the repositories, and thereby access the most
+> up-to-date version of the package you’re interested in, type
+> `sudo apt update`.
 
 > NOTE:  
-Try to use autocompletion i.e. use `Tab` after type `apt list --` for possible
-options.
+> Try to use autocompletion i.e. use `Tab` after type `apt list --` for possible
+> options.
 
 ### Useful commands
 
@@ -648,7 +648,7 @@ options.
         sudo apt update
 
 - list all available packages from index:
- 
+
         apt list
         apt list package
 
@@ -668,9 +668,9 @@ options.
         apt list --upgradeable | grep "]$" | wc --lines
 
 - search for the given regex term(s) in the list of available packages and
-display matches:
+  display matches:
 
-        apt search regex
+          apt search regex
 
 - show information about the given package(s):
 
@@ -691,7 +691,7 @@ display matches:
 
 - install all available upgrades:
 
-        sudo apt upgrade 
+        sudo apt upgrade
 
 - remove a `package` (but not its configuration files):
 
@@ -720,9 +720,9 @@ https://help.ubuntu.com/community/SynapticHowto
 
 For basic commands the syntax of the tools is identical.
 
-While `apt` is a command-line tool, it is intended to be used interactively,
-and not to be called from non-interactive scripts. The `apt-get` command should
-be used in scripts (perhaps with the `--quiet` flag).
+While `apt` is a command-line tool, it is intended to be used interactively, and
+not to be called from non-interactive scripts. The `apt-get` command should be
+used in scripts (perhaps with the `--quiet` flag).
 
 ## Installed software locations
 
@@ -735,11 +735,6 @@ https://manpages.ubuntu.com/manpages/jammy/en/man7/file-hierarchy.7.html#system%
 https://manpages.ubuntu.com/manpages/jammy/en/man7/file-hierarchy.7.html#user%20packages
 
 ## Useful commands
-
-
-
-
-
 
 ## Cheat sheets
 
@@ -819,12 +814,12 @@ Use the following command to display the `PATH` variable in more readable way:
 
 Paths from `PATH` variable comes from various scripts and startup files, i.e.:
 
-- `login` and variables derived from the `/etc/login.defs` config
-file (see more: `man login.1`)
+- `login` and variables derived from the `/etc/login.defs` config file (see
+  more: `man login.1`)
 
 - `pam_env` and variables derived from the `/etc/security/pam_env.conf`,
-`/etc/environment`, `~/.pam_environment` config files (see more:
-`man pam_env.7`)
+  `/etc/environment`, `~/.pam_environment` config files (see more:
+  `man pam_env.7`)
 
 - `/etc/profile` and scripts coming from `/etc/profile.d/`
 
@@ -914,7 +909,7 @@ https://linuxcommand.org/index.php
     sudo find / -path /proc -prune -o -print > bef
 
     # Install package
-    
+
     sudo find / -path /proc -prune -o -print > aft
     diff bef aft
 
@@ -932,7 +927,7 @@ https://www.jetbrains.com/toolbox-app/
     sudo apt install libfuse2
 
     # Download toolbox installer.
-    
+
     cd ~/Downloads/
     tar -vxf jetbrains-toolbox-<build>.tar.gz
     cd jetbrains-toolbox-<build>
@@ -969,7 +964,7 @@ https://asdf-vm.com/guide/getting-started.html#getting-started
 
     # Core installation.
     git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.15.0
-    
+
     # Add the following to ~/.bashrc:
     . "$HOME/.asdf/asdf.sh"
     . "$HOME/.asdf/completions/asdf.bash"
@@ -1014,7 +1009,7 @@ https://github.com/asdf-vm/asdf-erlang
     libwxgtk3.0-gtk3-dev libwxgtk-webview3.0-gtk3-dev libgl1-mesa-dev \
     libglu1-mesa-dev libpng-dev libssh-dev unixodbc-dev xsltproc fop \
     libxml2-utils libncurses-dev openjdk-11-jdk
-    
+
     # Install plugin.
     asdf plugin add erlang https://github.com/asdf-vm/asdf-erlang.git
     asdf plugin-list --ulrs
@@ -1061,7 +1056,7 @@ Manage versions using `asdf`.
 https://pdm-project.org/en/latest/#other-installation-methods
 
 > NOTE:  
-Check current python version before installation: `asdf current python`
+> Check current python version before installation: `asdf current python`
 
 ## `pipx`
 
@@ -1069,14 +1064,13 @@ Check current python version before installation: `asdf current python`
     python -m pipx ensurepath
 
 > NOTE:  
-Check current python version before installation: `asdf current python`
+> Check current python version before installation: `asdf current python`
 
 ## `git`
 
 Instructions:
 
 https://git-scm.com/book/en/v2/Getting-Started-Installing-Git#_installing_from_source
-
 
 ```
 sudo apt-get install dh-autoreconf libcurl4-gnutls-dev libexpat1-dev gettext \
