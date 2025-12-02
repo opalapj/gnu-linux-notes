@@ -144,35 +144,63 @@ notable directory it contains is `/var/log` where system log files are kept.
 
 ## Help
 
-    man <command>
-    man <reference>
-    info <command>
-    help <command>
-    <command> --help
+First entry point in `bash`:
 
-Examples:
+```bash
+$ help
+```
 
-    man man
-    man hier
-    man bash
-    info bash
-    bash --help
+`help` lists internally defined commands. `help` prints short description for
+all commands, e.g.:
 
-    man -f sysctl
-    man -k sysctl
+```bash
+$ help help
+$ help cd
+$ help echo
+```
 
-`man -f <term>` generates the same result as typing `whatis` i.e. list of all
-pages that are called `<term>`
+Second entry point:
 
-`man -k <term>` generates the same result as typing `apropos`
+```bash
+$ whatis
+```
 
-    man -a socket
-    man 2 socket
-    man 7 socket
+`whatis` displays one-line man page descriptions with section number. Very
+helpful as input for `man` util.
 
-The chapter number can be used to force `man` to display the page from a
-particular chapter. It is common to have multiple pages across multiple chapters
-with the same name, especially for names of library functions or system calls.
+Very similar tool - `aprops` - search man page by keywords, not exact name.
+
+```bash
+$ apropos
+```
+
+Third entry point:
+
+```bash
+$ man
+```
+
+`man` prints reference manuals. Good practice is invoke page with section
+explicitly:
+
+```bash
+$ man man.1
+$ man man.7
+$ man pwd.1
+```
+
+Last entry point:
+
+```bash
+$ info
+```
+
+Very advanced and very powerful. E.g. search `Print File Information` chapter
+for `find` util:
+
+```bash
+$ info find -n "Print File Information"
+```
 
 ## Autocompletion scripts
 
