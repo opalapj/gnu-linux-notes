@@ -140,6 +140,11 @@ notable directory it contains is `/var/log` where system log files are kept.
 
 # Terminal
 
+The term “terminal” often refers loosely to a terminal-emulator program (like
+`GNOME Terminal`). That program uses a pseudo-terminal (`PTY`) under the hood:
+the `PTY` provides a communication channel so your shell (like `Bash`) and any
+CLI apps think they talk to a “real” terminal — even though it's all virtual.
+
 ![](image-15.png)
 
 ## Help
@@ -202,28 +207,49 @@ for `find` util:
 $ info find -n "Print File Information"
 ```
 
+Last but no least - `<reference> --help`:
+
+```bash
+$ tar --help
+```
+
+Very long `help` (or other contents) could be "scrolled" by piping to `less`.
+
+```bash
+$ tar --help | less
+```
+
 ## Autocompletion scripts
 
 Autocompletion scripts are located in `/etc/bash_completion.d/`.
 
 Example of generation:
 
-    exercism completion bash | sudo tee /etc/bash_completion.d/exercism.bash-completion
+```bash
+$ exercism completion bash | sudo tee /etc/bash_completion.d/exercism.bash-completion
+```
 
 Enable autocompletion in current shell:
 
-    source /etc/bash_completion
+```bash
+$ source /etc/bash_completion
+```
 
 ## Aliases
 
 Edit `~/.bashrc` file to add alias permamently, eg.
 
-    alias new='gnome-terminal'
+```
+alias new='gnome-terminal'
+```
 
 ## History
 
-    history
-    history | tail -10
+```bash
+$ history
+$ history | tail -10
+$ !<n-line>
+```
 
 ## Executing previous commands
 
@@ -239,92 +265,114 @@ Edit `~/.bashrc` file to add alias permamently, eg.
 
 Command:
 
-    clear
+```bash
+$ clear
+```
 
 Keyboard shortcut:
 
-    Ctrl + L
+```
+Ctrl + L
+```
 
 ## System information
 
-    uname
+```bash
+$ uname
+```
 
 ## Control the systemd system and service manager
 
-    sudo systemctl
-    sudo systemctl start gdm  | for starting gnome display manager
-    sudo systemctl stop gdm   | for stopping gnome display manager
+```bash
+$ sudo systemctl
+$ sudo systemctl start gdm  # start gnome display manager
+$ sudo systemctl stop gdm  # stop gnome display manager
+```
 
 ## SSH client
 
-    ssh
-    ssh student@remote-server.com
+```bash
+$ ssh
+$ ssh student@remote-server.com
+```
 
 ## Rebooting and Shutting Down
 
-    sudo shutdown
+```bash
+$ sudo shutdown
+```
 
 ## Locating applications
 
-    which
-    whereis
+```bash
+$ which
+$ whereis
+```
 
 ## Accessing directories
 
-    pwd
+```bash
+$ pwd
 
-    cd <dir>  | for specifed dir
-    cd        | for home dir
-    cd ~      | for home dir (alternative)
-    cd ..     | for parent dir
-    cd /      | for root dir
-    cd -      | for previous viewed dir
+$ cd <dir>  # for specifed dir
+$ cd  # for home dir
+$ cd ~  # for home dir (alternative)
+$ cd ..  # for parent dir
+$ cd /  # for root dir
+$ cd -  # for previous viewed dir
 
-    pushd
-    popd
+$ pushd
+$ popd
+```
 
 ## Exploring the file system
 
-    tree                       | travers dirs up
-    tree -d                    | only dirs
-    tree -L 1 -a --filesfirst  | only first level, all files, sort files first
+```bash
+$ tree  # travers dirs up
+$ tree -d  # only dirs
+$ tree -L 1 -a --filesfirst  # only first level, all files, sort files first
 
-    ls      | list directory content
-    ls -a   | do not ignore entries starting with .
-    ls -l   | long list format
-    ls -Aliv
+$ ls  # list directory content
+$ ls -a  # do not ignore entries starting with .
+$ ls -l  # long list format
+$ ls -Aliv
+```
 
 ## Links
 
-    ln
+```bash
+$ ln
+```
 
 ![](image-16.png)
 
 ![](image-17.png)
 
-## Viewing files
+## Previewing files
 
-    cat
-    cat -n  | number non-empty lines
+```bash
+$ cat
+$ cat -n  # number non-empty lines
 
-    tac
+$ tac
 
-    less
-    less -N
+$ less
+$ less -N
 
-    head
-    head -n 15
-    head -n 15 | cat -n
+$ head
+$ head -n 15
+$ head -n 15  # cat -n
 
-    tail
-    tail -n 15
-    tail -n 15 | cat -n
+$ tail
+$ tail -n 15
+$ tail -n 15  # cat -n
 
-    wc
-    wc --lines
-    wc --words
-    wc --chars
-    wc --bytes
+$ wc
+$ wc --lines
+$ wc --words
+$ wc --chars
+$ wc --bytes
+```
 
 ![](image-61.png)
 
@@ -332,13 +380,17 @@ Keyboard shortcut:
 
 ## Creating a File
 
-    touch <filename>
-    touch -t <timestamp> <filename>
-    touch -t 12091600 <filename>
+```bash
+$ touch <filename>
+$ touch -t <timestamp> <filename>
+$ touch -t 12091600 <filename>
+```
 
 ## Creating a Directory
 
-    mkdir <dirname>
+```bash
+$ mkdir <dirname>
+```
 
 ## Moving, Renaming or Removing a File
 
@@ -348,17 +400,19 @@ Keyboard shortcut:
 - move a file to another location, while possibly changing its name at the same
   time.
 
-```
-mv <source> <destination>
+```bash
+$ mv <source> <destination>
 ```
 
 `rm` removes files and directories
 
-    rm <filename>
-    rm -i <filename>
-    rm -r <filename>
+```bash
+$ rm <filename>
+$ rm -i <filename>
+$ rm -r <filename>
+```
 
-## Moving, Renaming or Removing a File a Directory
+## Moving, Renaming or Removing a Directory
 
 `mv` does double duty, in that it can:
 
@@ -366,14 +420,16 @@ mv <source> <destination>
 - move a directory to another location, while possibly changing its name at the
   same time.
 
-```
-rmdir <dirname>
+```bash
+$ rmdir <dirname>
 ```
 
 The directory must be empty or the command will fail. To remove a directory and
 all of its contents you have to do:
 
-    rm -rf <dirname>
+```bash
+$ rm -rf <dirname>
+```
 
 `rmdir` works only on empty directories; otherwise you get an error.
 
@@ -392,16 +448,22 @@ to `stdout` and `stderr`.
 
 If you want to send the output to a file, use the greater-than sign (`>`) as in:
 
-    cat > output-file
+```bash
+$ cat > output-file
+```
 
 You can change its input source by using the less-than sign (`<`) followed by
 the name of the file to be consumed for input data:
 
-    cat < input-file
+```bash
+$ cat < input-file
+```
 
 In fact, you can do both at the same time as in:
 
-    cat < input-file > output-file
+```bash
+$ cat < input-file > output-file
+```
 
 > NOTE:  
 > Using `cat` and I/O redirection we can copy content from `input-file` to
@@ -415,7 +477,9 @@ descriptor number (`2`), the greater-than sign (`>`), followed by the name of
 the file you want to receive everything the running command writes to `stderr`,
 e.g.:
 
-    cat --unknown-option 2> error-file
+```bash
+$ cat --unknown-option 2> error-file
+```
 
 > NOTE:  
 > By the same logic, `cat 1> output-file` is the same as `cat > output-file`.
@@ -423,15 +487,21 @@ e.g.:
 A special shorthand notation can send anything written to file descriptor `2`
 (`stderr`) to the same place as file descriptor `1` (`stdout`):
 
-    cat > all-output-file 2>&1
+```bash
+$ cat > all-output-file 2>&1
+```
 
 `bash` permits an easier syntax for the above:
 
-    cat &> all-output-file
+```bash
+$ cat &> all-output-file
+```
 
 ## Searching for files
 
-    locate <pattern>
+```bash
+$ locate <pattern>
+```
 
 > NOTE:  
 > `locate` utilizes a database created by a related utility, `updatedb`. Most
@@ -442,13 +512,17 @@ A special shorthand notation can send anything written to file descriptor `2`
 > files in the `/tmp` directory are often excluded from the index for
 > performance and privacy reasons.
 
-    find <start-dir> <expression>
-    find . -name "file*"  | start searching from current working directory
-    find / -name "file*"  | start searching from root directory
+```bash
+$ find <start-dir> <expression>
+$ find . -name "file*"  | start searching from current working directory
+$ find / -name "file*"  | start searching from root directory
+```
 
 More advanced oneliner:
 
-    sudo find ~ -path "*asdf*" -prune -o -type d -name "bin" -print
+```bash
+$ sudo find ~ -path "*asdf*" -prune -o -type d -name "bin" -print
+```
 
 - start searching from the user home dir
 - prune result which path contains "asdf"
@@ -464,7 +538,9 @@ More advanced oneliner:
 
 ## Comparing files
 
-    diff <filename1> <filename2>
+```bash
+$ diff <filename1> <filename2>
+```
 
 GUIs:
 
@@ -474,7 +550,16 @@ GUIs:
 
 ## Derermine file type
 
-    file <file> ...
+```bash
+$ file <file> ...
+```
+
+## Check space usage
+
+```bash
+$ du
+$ du -had 1 ./ | sort -rh
+```
 
 ## Compressing data
 
@@ -486,32 +571,40 @@ GUIs:
 
 - list archive content:
 
-        tar --verbose --list --file arch-name.tar
-        tar vtf arch-name.tar
+  ```bash
+  $ tar --verbose --list --file arch-name.tar
+  $ tar vtf arch-name.tar
+  ```
 
 - creating `.tar` archive:
 
-        tar --verbose --create --file arch-name.tar dir-to-arch
-        tar vcf arch-name.tar dir-to-arch
+  ```bash
+  $ tar --verbose --create --file arch-name.tar dir-to-arch
+  $ tar vcf arch-name.tar dir-to-arch
+  ```
 
 - creating `.tar.gz` compressed archive:
 
-        tar --verbose --create --gzip --file arch-name.tar.gz dir-to-arch
-        tar vczf arch-name.tar.gz dir-to-arch
+  ```bash
+  $ tar --verbose --create --gzip --file arch-name.tar.gz dir-to-arch
+  $ tar vczf arch-name.tar.gz dir-to-arch
+  ```
 
 - extracting `.tar` or `.tar.gz` archive:
 
-        tar --verbose --extract --file arch-name.tar
-        tar vxf arch-name.tar
+  ```bash
+  $ tar --verbose --extract --file arch-name.tar
+  $ tar vxf arch-name.tar
+  ```
 
 ## Wildcards and Matching Filenames
 
 | Wildcard | Result                                             |
 | -------- | -------------------------------------------------- |
-| ?        | Matches any single character                       |
-| \*       | Matches any string of characters                   |
-| [set]    | Matches any character in the set of characters     |
-| [!set]   | Matches any character not in the set of characters |
+| `?`      | Matches any single character                       |
+| `*`      | Matches any string of characters                   |
+| `[set]`  | Matches any character in the set of characters     |
+| `[!set]` | Matches any character not in the set of characters |
 
 # File manipulation utilities
 
@@ -560,11 +653,15 @@ because of `non-sudo`/`sudo` privileges. Example:
 
 When it does not work:
 
-    sudo pdm completion bash > /etc/bash_completion.d/pdm.bash-completion
+```bash
+$ sudo pdm completion bash > /etc/bash_completion.d/pdm.bash-completion
+```
 
 Try:
 
-    pdm completion bash | sudo tee /etc/bash_completion.d/pdm.bash-completion
+```bash
+$ pdm completion bash | sudo tee /etc/bash_completion.d/pdm.bash-completion
+```
 
 # Installing software
 
@@ -605,7 +702,7 @@ to install, remove, and provide information about `.deb` packages.
         dpkg --list
 
   > NOTE:  
-  >  Without a pattern, non-installed packages will not be shown.
+  > Without a pattern, non-installed packages will not be shown.
 
 - list packages, even non-installed:
 
@@ -916,6 +1013,12 @@ Paths from `PATH` variable comes from various scripts and startup files, i.e.:
 ![](image-53.png)
 
 ![](image-54.png)
+
+# Miscellaneous
+
+## `.d` suffix
+
+https://askubuntu.com/questions/7648/many-directories-have-a-d-suffix-extension-what-does-it-mean
 
 # Resources
 
