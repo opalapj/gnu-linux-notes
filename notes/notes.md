@@ -30,6 +30,11 @@
 
 # Filesystem Hierarchy
 
+```bash
+$ man file-hierarchy
+$ man hier
+```
+
 ![](image-24.png)
 
 https://www.youtube.com/watch?v=bbmWOjuFmgA
@@ -146,6 +151,39 @@ the `PTY` provides a communication channel so your shell (like `Bash`) and any
 CLI apps think they talk to a “real” terminal — even though it's all virtual.
 
 ![](image-15.png)
+
+## Bash
+
+```bash
+$ bash --version
+```
+
+### Related files
+
+`/bin/bash`: the bash executable
+
+`/etc/profile`: the systemwide initialization file, executed for login shells
+
+`/etc/bash.bashrc`: the systemwide per-interactive-shell startup file
+
+`/etc/bash.bash.logout`: the systemwide login shell cleanup file, executed when
+a login shell exits
+
+`~/.bash_profile`: the personal initialization file, executed for login shells
+
+`~/.bashrc`: the individual per-interactive-shell startup file
+
+`~/.bash_logout`: the individual login shell cleanup file, executed when a login
+shell exits
+
+`~/.inputrc`: the individual readline initialization file
+
+## Command types
+
+```bash
+$ type cd
+cd is a shell builtin
+```
 
 ## Help
 
@@ -1027,10 +1065,6 @@ https://refspecs.linuxfoundation.org/
 https://www.debian.org/intro/index.en.html
 
 https://manpages.ubuntu.com/
-
-https://man7.org/linux/man-pages/
-
-https://linuxcommand.org/index.php
 
 # Installed software
 
